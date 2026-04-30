@@ -4,7 +4,6 @@
 
 ![code size](https://img.shields.io/github/languages/code-size/nvim-lualine/lualine.nvim?style=flat-square)
 ![license](https://img.shields.io/github/license/nvim-lualine/lualine.nvim?style=flat-square)
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-F7941D?style=plastic&logo=buy-me-a-coffee&logoColor=white)](https://buymeacoffee.com/shadmansalj)
 
 <!-- panvimdoc-ignore-end -->
 
@@ -74,6 +73,14 @@ Last Updated On: 18-04-2022
 
 ## Installation
 
+### [vim.pack](https://neovim.io/doc/user/pack/#vim.pack) (Only for neovim 0.12)
+
+```lua
+vim.pack.add({
+    'https://github.com/nvim-tree/nvim-web-devicons',
+    'https://github.com/nvim-lualine/lualine.nvim'
+})
+```
 ### [vim-plug](https://github.com/junegunn/vim-plug)
 
 ```vim
@@ -681,6 +688,8 @@ sections = {
 
       shorting_target = 40,    -- Shortens path to leave 40 spaces in the window
                                -- for other components. (terrible name, any suggestions?)
+                               -- It can also be a function that returns
+                               -- the value of `shorting_target` dynamically.
       symbols = {
         modified = '[+]',      -- Text to show when the file is modified.
         readonly = '[-]',      -- Text to show when the file is non-modifiable or readonly.
@@ -844,6 +853,8 @@ sections = {
       },
       -- List of LSP names to ignore (e.g., `null-ls`):
       ignore_lsp = {},
+      -- Display the LSP name
+      show_name = true,
     }
   }
 }
@@ -1112,11 +1123,3 @@ You can find some useful [configuration snippets](https://github.com/nvim-lualin
 
 If you want to extend lualine with plugins or want to know
 which ones already do, [wiki/plugins](https://github.com/nvim-lualine/lualine.nvim/wiki/Plugins) is for you.
-
-### Support
-
-If you find this project useful, consider supporting development:
-
-<a href="https://buymeacoffee.com/shadmansalj" target="_blank">
-    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" width="200">
-</a>
